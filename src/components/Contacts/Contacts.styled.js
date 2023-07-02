@@ -14,7 +14,7 @@ export const Table = styled.table`
 
   & button {
     padding: 5px 10px;
-    background-color: #a8dadc;
+    background-color: #d4d4d4;
     border: 0px;
     border-radius: 5px;
     cursor: pointer;
@@ -22,7 +22,7 @@ export const Table = styled.table`
   }
 
   & button:hover {
-    background-color: #457b9d;
+    background-color: #8f94f7;
     transform: scale(1.05);
   }
 `;
