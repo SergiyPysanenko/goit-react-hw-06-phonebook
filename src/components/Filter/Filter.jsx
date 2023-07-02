@@ -1,12 +1,21 @@
-import styles from './Filter.module.css';
+import { useDispatch } from 'react-redux/es/exports';
+import { filterContacts } from 'redux/filterSlice';
+import { FormStyled } from './Filter.styted';
 
-const Filter = ({value, onChange}) => (
-  <>
-    <label classNeme={styles.label}>
-      Find Contacts by name
-      <input className={styles.input} type="text" value={value} onChange={onChange} />
-    </label>
-  </>
-);
-
-export default Filter;
+export const Filter = () => {
+  const dispatch = useDispatch();
+  return (
+    <FormStyled>
+      <label>
+        Find contacts by name
+        <input
+          type="text"
+          name="name"
+          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+          onChange={e => dispatch(filterContacts(e.target.value))}
+        ></input>
+      </label>
+    </FormStyled>
+  );
+};
